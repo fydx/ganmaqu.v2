@@ -1,6 +1,7 @@
 package com.xstrikers.ganmaquv2.ui;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,10 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xstrikers.ganmaquv2.R;
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends android.support.v7.app.ActionBarActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
   /**
@@ -34,23 +36,37 @@ public class MainActivity extends ActionBarActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+      ActionBar actionbar = getSupportActionBar();
+      actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.main_actionbar_bg));
+      int actionBarTitleId = getResources().getSystem().getIdentifier("action_bar_title", "id", "android");
+      if (actionBarTitleId > 0) {
+          TextView title = (TextView) findViewById(actionBarTitleId);
+          if (title != null) {
+              title.setTextColor(Color.WHITE);
+          }
+  }
     mNavigationDrawerFragment = (NavigationDrawerFragment)
-        getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+    getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
     mTitle = getTitle();
-
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    fragmentManager.beginTransaction()
+            .replace(R.id.container, new MainFragment())
+            .commit();
     // Set up the drawer.
     mNavigationDrawerFragment.setUp(
-        R.id.navigation_drawer,
+    R.id.navigation_drawer,
         (DrawerLayout) findViewById(R.id.drawer_layout));
+
   }
 
   @Override
   public void onNavigationDrawerItemSelected(int position) {
     // update the main content by replacing fragments
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    fragmentManager.beginTransaction()
-        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-        .commit();
+//    FragmentManager fragmentManager = getSupportFragmentManager();
+//    fragmentManager.beginTransaction()
+//        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+//        .commit();
+      Toast.makeText(this,String.valueOf(position),1000);
   }
 
   public void onSectionAttached(int number) {
@@ -58,12 +74,7 @@ public class MainActivity extends ActionBarActivity
       case 1:
         mTitle = getString(R.string.title_section1);
         break;
-      case 2:
-        mTitle = getString(R.string.title_section2);
-        break;
-      case 3:
-        mTitle = getString(R.string.title_section3);
-        break;
+
     }
   }
 
@@ -128,8 +139,6 @@ public class MainActivity extends ActionBarActivity
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
       View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-      TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-      textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
       return rootView;
     }
 
