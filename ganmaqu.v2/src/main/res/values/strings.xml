@@ -9,5 +9,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="main_last">上一次保存的路线</string>
     <string name="action_settings">Settings</string>
+    <string name="Hostname">115.28.17.121</string>
 
 </resources>

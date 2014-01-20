@@ -23,6 +23,13 @@ android {
 }
 
 dependencies {
-	compile 'com.android.support:support-v4:19.0.0'
-    compile "com.android.support:appcompat-v7:18.0.+"
+    compile 'com.android.support:appcompat-v7:18.0.+'
+    compile 'com.android.support:support-v4:19.0.0'
+    compile files('libs/baidumapapi_v2_3_1.jar')
+    compile files('libs/locSDK_4.0.jar')
+    compile files('libs/volley.jar')
 }
+tasks.withType(Compile) {
+    options.encoding = "UTF-8"
+}
+

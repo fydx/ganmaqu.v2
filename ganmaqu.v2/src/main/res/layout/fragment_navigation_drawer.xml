@@ -1,9 +1,32 @@
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer"
+    android:layout_width="@dimen/navigation_drawer_width"
     android:layout_height="match_parent"
-    android:choiceMode="singleChoice"
-    android:divider="@android:color/transparent"
-    android:dividerHeight="0dp"
+    android:orientation="vertical"
     android:background="#cccc"
-    tools:context="com.xstrikers.ganmaquv2.ui.NavigationDrawerFragment" />
+    android:gravity="center_horizontal"
+    android:padding="6dp">
+
+    <Button
+
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:id="@+id/main_drawer_profile"
+        android:background="@drawable/drawer_profile" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:background="@drawable/drawer_explorer"
+        android:id="@+id/main_drawer_explorer"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:background="@drawable/drawer_settings"
+        android:id="@+id/main_drawer_settings"
+        android:layout_marginTop="20dp" />
+</LinearLayout>
+
+    <!--<ListView--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:choiceMode="singleChoice"--><!--android:divider="@android:color/transparent"--><!--android:dividerHeight="0dp"--><!--android:background="#cccc"--><!--tools:context="com.xstrikers.ganmaquv2.ui.NavigationDrawerFragment" />-->

@@ -1,13 +1,20 @@
 package com.xstrikers.ganmaquv2.ui;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,11 +23,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.xstrikers.ganmaquv2.R;
+import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
 
 public class MainActivity extends android.support.v7.app.ActionBarActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-
   /**
    * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
    */
@@ -30,43 +43,98 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
    * Used to store the last screen title. For use in {@link #restoreActionBar()}.
    */
   private CharSequence mTitle;
+  private LocationManagerHelper locationManagerHelper;
+  private RequestQueue mRequestQueue;
+  private StringBuilder geocodingURL;
+  private SharedPreferences userInfo;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-      ActionBar actionbar = getSupportActionBar();
-      actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.main_actionbar_bg));
-      int actionBarTitleId = getResources().getSystem().getIdentifier("action_bar_title", "id", "android");
-      if (actionBarTitleId > 0) {
-          TextView title = (TextView) findViewById(actionBarTitleId);
-          if (title != null) {
-              title.setTextColor(Color.WHITE);
-          }
-  }
+    ActionBar actionbar = getSupportActionBar();
+    actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.main_actionbar_bg));
+    int actionBarTitleId =
+        getResources().getSystem().getIdentifier("action_bar_title", "id", "android");
+    if (actionBarTitleId > 0) {
+      TextView title = (TextView) findViewById(actionBarTitleId);
+      if (title != null) {
+        title.setTextColor(Color.WHITE);
+      }
+    }
+    userInfo = this.getSharedPreferences("userInfo", 0);
     mNavigationDrawerFragment = (NavigationDrawerFragment)
-    getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+        getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
     mTitle = getTitle();
     FragmentManager fragmentManager = getSupportFragmentManager();
     fragmentManager.beginTransaction()
-            .replace(R.id.container, new MainFragment())
-            .commit();
+        .replace(R.id.container, new MainFragment())
+        .commit();
     // Set up the drawer.
     mNavigationDrawerFragment.setUp(
-    R.id.navigation_drawer,
+        R.id.navigation_drawer,
         (DrawerLayout) findViewById(R.id.drawer_layout));
+    locationManagerHelper = LocationManagerHelper.getInstance();
+    locationManagerHelper.setLocationManager((LocationManager) this
+        .getSystemService(Context.LOCATION_SERVICE));
+    locationManagerHelper.start();
+    mRequestQueue = Volley.newRequestQueue(this);
+    startActivity(new Intent(this, SelectCityActivity.class));
+    if (userInfo.getBoolean("firstBoot", true) == true)
+    {
+      if (locationManagerHelper.getLocation() == null)
+        startActivity(new Intent(this, SelectCityActivity.class));
+      else
+        getLocationCity();
+    }
+  }
 
+  public void getLocationCity()
+  {
+    geocodingURL =
+        new StringBuilder(
+            "http://api.map.baidu.com/geocoder/v2/?ak=ogjpAwKHx0XBwsnxKDr5plXR&output=json&pois=0&coordtype=wgs84ll&location=");
+    geocodingURL.append(locationManagerHelper.getLocation());
+    Log.i("ganmaqu", geocodingURL.toString());
+    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+        Request.Method.GET,
+        geocodingURL.toString(),
+        null,
+        new Response.Listener<JSONObject>() {
+          @Override
+          public void onResponse(JSONObject response) {
+            try {
+              Log.i("ganmaqu", response.toString());
+              String city =
+                  (new JSONObject(new JSONObject(response.getString("result"))
+                        .getString("addressComponent"))).getString("city");
+                Log.i("ganmaqu", city);
+                userInfo.edit().putBoolean("firstBoot", false);
+                userInfo.edit().putString("city", city);
+            }
+            catch (JSONException e)
+            {
+              Log.i("ganmaqu", "excption in DecodeJson city");
+            }
+
+          }
+        },
+        new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError arg0) {
+            System.out.println("sorry,Error");
+          }
+        });
+
+    mRequestQueue.add(jsonObjectRequest);
   }
 
   @Override
   public void onNavigationDrawerItemSelected(int position) {
     // update the main content by replacing fragments
-//    FragmentManager fragmentManager = getSupportFragmentManager();
-//    fragmentManager.beginTransaction()
-//        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-//        .commit();
-      Toast.makeText(this,String.valueOf(position),1000);
+
+    Toast.makeText(this, String.valueOf(position), 1000);
   }
 
   public void onSectionAttached(int number) {
@@ -74,7 +142,6 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
       case 1:
         mTitle = getString(R.string.title_section1);
         break;
-
     }
   }
 

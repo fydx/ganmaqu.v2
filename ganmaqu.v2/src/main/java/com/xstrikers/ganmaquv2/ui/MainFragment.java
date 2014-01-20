@@ -12,11 +12,11 @@ import com.xstrikers.ganmaquv2.R;
  * Created by LB on 14-1-18.
  */
 public class MainFragment extends android.support.v4.app.Fragment {
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        return rootView;
-        
-    }
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+
+        }
 
 }
