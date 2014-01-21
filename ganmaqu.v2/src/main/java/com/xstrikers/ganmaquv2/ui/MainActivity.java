@@ -80,14 +80,14 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
         .getSystemService(Context.LOCATION_SERVICE));
     locationManagerHelper.start();
     mRequestQueue = Volley.newRequestQueue(this);
-    startActivity(new Intent(this, SelectCityActivity.class));
-    if (userInfo.getBoolean("firstBoot", true) == true)
-    {
-      if (locationManagerHelper.getLocation() == null)
-        startActivity(new Intent(this, SelectCityActivity.class));
-      else
-        getLocationCity();
-    }
+ //   startActivity(new Intent(this, SelectCityActivity.class));
+//      if (userInfo.getBoolean("firstBoot", true) == true)
+//      {
+//          if (locationManagerHelper.getLocation() == null)
+//              startActivity(new Intent(this, SelectCityActivity.class));
+//
+//           //   getLocationCity();
+//      }
   }
 
   public void getLocationCity()
@@ -110,8 +110,9 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
                   (new JSONObject(new JSONObject(response.getString("result"))
                         .getString("addressComponent"))).getString("city");
                 Log.i("ganmaqu", city);
-                userInfo.edit().putBoolean("firstBoot", false);
-                userInfo.edit().putString("city", city);
+                userInfo.edit().putBoolean("firstBoot", false).commit();
+                userInfo.edit().putString("city", city).commit();
+                Toast.makeText(getApplicationContext(),"检测您在"+city + "\n已设置为当前默认城市" ,Toast.LENGTH_LONG).show();
             }
             catch (JSONException e)
             {
@@ -129,7 +130,6 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
 
     mRequestQueue.add(jsonObjectRequest);
   }
-
   @Override
   public void onNavigationDrawerItemSelected(int position) {
     // update the main content by replacing fragments
@@ -215,6 +215,17 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
       ((MainActivity) activity).onSectionAttached(
           getArguments().getInt(ARG_SECTION_NUMBER));
     }
-  }
-
 }
+/**
+ * 为了得到传回的数据，必须在前面的Activity中（指MainActivity类）重写onActivityResult方法
+ *
+ * requestCode 请求码，即调用startActivityForResult()传递过去的值
+ * resultCode 结果码，结果码用于标识返回数据来自哪个新Activity
+ */
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String result = data.getStringExtra("city");//得到新Activity 关闭后返回的数据
+        Log.i("ganmaqu", result);
+        mNavigationDrawerFragment.setCityText(result);
+        }
+        }

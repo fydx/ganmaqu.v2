@@ -1,6 +1,7 @@
 package com.xstrikers.ganmaquv2.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +22,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xstrikers.ganmaquv2.R;
@@ -59,7 +63,7 @@ public class NavigationDrawerFragment extends Fragment {
   private DrawerLayout mDrawerLayout;
   private ListView mDrawerListView;
   private View mFragmentContainerView;
-
+  private  Button selectCityButton;
   private int mCurrentSelectedPosition = 0;
   private boolean mFromSavedInstanceState;
   private boolean mUserLearnedDrawer;
@@ -73,6 +77,7 @@ public class NavigationDrawerFragment extends Fragment {
     // Read in the flag indicating whether or not the user has demonstrated awareness of the
     // drawer. See PREF_USER_LEARNED_DRAWER for details.
     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
     mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
 
     if (savedInstanceState != null) {
@@ -85,15 +90,24 @@ public class NavigationDrawerFragment extends Fragment {
 
     // Indicate that this fragment would like to influence the set of actions in the action bar.
     setHasOptionsMenu(true);
+
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
+      View contentView = inflater.inflate(R.layout.fragment_navigation_drawer, null);
+      selectCityButton = (Button)contentView.findViewById(R.id.main_drawer_selectcity);
 
+      selectCityButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              getActivity().startActivityForResult(new Intent(getActivity().getApplicationContext(), SelectCityActivity.class), 1);
 
-    return inflater.inflate(
-            R.layout.fragment_navigation_drawer, container, false);
+          }
+      });
+
+    return contentView;
   }
 
   public boolean isDrawerOpen() {
@@ -264,5 +278,10 @@ public class NavigationDrawerFragment extends Fragment {
      * Called when an item in the navigation drawer is selected.
      */
     void onNavigationDrawerItemSelected(int position);
+  }
+
+  public void setCityText(String city)
+  {
+      selectCityButton.setText(city);
   }
 }

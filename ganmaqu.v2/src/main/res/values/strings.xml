@@ -10,5 +10,9 @@
     <string name="main_last">上一次保存的路线</string>
     <string name="action_settings">Settings</string>
     <string name="Hostname">115.28.17.121</string>
+    <string name="selectcity">城市选择</string>
+    <string name="locationRightNow">自动检测中..请稍后</string>
+    <string name="manualSelect">手动选择</string>
+    <string name="autoSelect">自动选择</string>
 
 </resources>
