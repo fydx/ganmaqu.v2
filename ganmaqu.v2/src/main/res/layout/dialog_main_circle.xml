@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal|center_vertical" >
+
+    <GridView
+        android:id="@+id/gridView_circles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="3" >
+    </GridView>
+
+    <Button
+    android:id="@+id/button_myCircle"
+    android:layout_width="match_parent"
+    android:layout_height="34dp"
+    android:layout_margin="10dp"
+    android:textSize="16dp"
+    android:background="@drawable/button_style_blue"
+    android:textColor="#FFFFFF"
+    android:text="自定义商圈" />
+
+    <TextView
+        android:id="@+id/textView_wait"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="读取商圈中...请稍候..." />
+
+</LinearLayout>

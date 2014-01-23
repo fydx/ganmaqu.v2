@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
+import com.xstrikers.ganmaquv2.ui.dialog.CircleDialog;
 
 public class MainActivity extends android.support.v7.app.ActionBarActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -47,6 +49,8 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
   private RequestQueue mRequestQueue;
   private StringBuilder geocodingURL;
   private SharedPreferences userInfo;
+  private TextView  typeTextView;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -80,14 +84,16 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
         .getSystemService(Context.LOCATION_SERVICE));
     locationManagerHelper.start();
     mRequestQueue = Volley.newRequestQueue(this);
- //   startActivity(new Intent(this, SelectCityActivity.class));
-//      if (userInfo.getBoolean("firstBoot", true) == true)
-//      {
-//          if (locationManagerHelper.getLocation() == null)
-//              startActivity(new Intent(this, SelectCityActivity.class));
-//
-//           //   getLocationCity();
-//      }
+
+
+    // startActivity(new Intent(this, SelectCityActivity.class));
+    // if (userInfo.getBoolean("firstBoot", true) == true)
+    // {
+    // if (locationManagerHelper.getLocation() == null)
+    // startActivity(new Intent(this, SelectCityActivity.class));
+    //
+    // // getLocationCity();
+    // }
   }
 
   public void getLocationCity()
@@ -96,6 +102,7 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
         new StringBuilder(
             "http://api.map.baidu.com/geocoder/v2/?ak=ogjpAwKHx0XBwsnxKDr5plXR&output=json&pois=0&coordtype=wgs84ll&location=");
     geocodingURL.append(locationManagerHelper.getLocation());
+
     Log.i("ganmaqu", geocodingURL.toString());
     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
         Request.Method.GET,
@@ -108,11 +115,12 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
               Log.i("ganmaqu", response.toString());
               String city =
                   (new JSONObject(new JSONObject(response.getString("result"))
-                        .getString("addressComponent"))).getString("city");
-                Log.i("ganmaqu", city);
-                userInfo.edit().putBoolean("firstBoot", false).commit();
-                userInfo.edit().putString("city", city).commit();
-                Toast.makeText(getApplicationContext(),"检测您在"+city + "\n已设置为当前默认城市" ,Toast.LENGTH_LONG).show();
+                      .getString("addressComponent"))).getString("city");
+              Log.i("ganmaqu", city);
+              userInfo.edit().putBoolean("firstBoot", false).commit();
+              userInfo.edit().putString("city", city).commit();
+              Toast.makeText(getApplicationContext(), "检测您在" + city + "\n已设置为当前默认城市",
+                  Toast.LENGTH_LONG).show();
             }
             catch (JSONException e)
             {
@@ -130,6 +138,7 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
 
     mRequestQueue.add(jsonObjectRequest);
   }
+
   @Override
   public void onNavigationDrawerItemSelected(int position) {
     // update the main content by replacing fragments
@@ -215,17 +224,20 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
       ((MainActivity) activity).onSectionAttached(
           getArguments().getInt(ARG_SECTION_NUMBER));
     }
+  }
+
+  /**
+   * 为了得到传回的数据，必须在前面的Activity中（指MainActivity类）重写onActivityResult方法
+   * 
+   * requestCode 请求码，即调用startActivityForResult()传递过去的值
+   * resultCode 结果码，结果码用于标识返回数据来自哪个新Activity
+   */
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    String result = data.getStringExtra("city");// 得到新Activity 关闭后返回的数据
+    Log.i("ganmaqu", result);
+    mNavigationDrawerFragment.setCityText(result);
+  }
+
+
 }
-/**
- * 为了得到传回的数据，必须在前面的Activity中（指MainActivity类）重写onActivityResult方法
- *
- * requestCode 请求码，即调用startActivityForResult()传递过去的值
- * resultCode 结果码，结果码用于标识返回数据来自哪个新Activity
- */
-@Override
-public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String result = data.getStringExtra("city");//得到新Activity 关闭后返回的数据
-        Log.i("ganmaqu", result);
-        mNavigationDrawerFragment.setCityText(result);
-        }
-        }

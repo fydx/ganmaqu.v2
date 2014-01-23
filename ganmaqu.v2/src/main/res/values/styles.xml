@@ -5,4 +5,27 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="dialog_animation">
+        <item name="android:windowEnterAnimation">@anim/fading_in</item>
+        <item name="android:windowExitAnimation">@anim/fading_out</item>
+    </style>
+
+    <style name="CircleDialog" parent="android:style/Theme.Dialog">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <!-- <item name="android:windowBackground">@android:color/transparent</item> -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+
+    </style>
 </resources>
