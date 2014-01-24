@@ -131,6 +131,7 @@ public class LocationManagerHelper {
 
 
   }
+
   public void requestLocationUpdates()
   {
     try {
@@ -140,16 +141,27 @@ public class LocationManagerHelper {
     }
 
   }
-   public String getLocation()
-   {
-       return String.valueOf(lat) + "," + String.valueOf(lng);
-   }
 
-   public void start()
-   {
-       this.openGPS();
-       this.getProvider();
-       this.updateWithNewLocation();
-       this.requestLocationUpdates();
-   }
+  public String getLocation()
+  {
+    return String.valueOf(lat) + "," + String.valueOf(lng);
+  }
+
+  public void start()
+  {
+    this.openGPS();
+    this.getProvider();
+    this.updateWithNewLocation();
+    this.requestLocationUpdates();
+  }
+
+  public double getLng()
+  {
+    return lng;
+  }
+
+  public double getLat()
+  {
+    return lat;
+  }
 }

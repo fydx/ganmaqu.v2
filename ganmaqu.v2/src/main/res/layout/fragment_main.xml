@@ -71,22 +71,13 @@
         android:id="@+id/main_button_circle"
         android:layout_below="@+id/main_radioGroup"
         android:layout_alignParentLeft="true" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="朋友出行"
-        android:textSize="20dp"
-        android:background="#FFFFFF"
-        android:id="@+id/textView_type"
-        android:layout_below="@+id/button_circle"
-        android:layout_alignParentLeft="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_getroute"
         android:id="@+id/button_getRoute"
-        android:layout_below="@+id/textView_type"
+        android:layout_above="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -60,28 +60,29 @@ public class CircleDialog extends Dialog {
         .findViewById(R.id.gridView_circles);
     mRequestQueue = Volley.newRequestQueue(activity);
     gridAdapter = new GridAdapter(this.getContext());
-   // getCityCircles(city);
-   //   new getCircles().execute(city);
-      AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-      StringBuilder getCircles =
-          new StringBuilder("http://").append(activity.getResources().getString(R.string.Hostname))
-                  .append(":8080/?command=getcirclelist&city=").append(city);
-      asyncHttpClient.get(getCircles.toString(),new AsyncHttpResponseHandler()
-      {
-          @Override
-          public void onSuccess(String response) {
-              try {
-                  gridAdapter.setHashMap(getData(new JSONObject(response)));
-                  gridView.setAdapter(gridAdapter);
-              }
-              catch (JSONException e)
-              {
+    // getCityCircles(city);
+    // new getCircles().execute(city);
+    // AsyncHttpClient方式
+    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+    StringBuilder getCircles =
+        new StringBuilder("http://").append(activity.getResources().getString(R.string.Hostname))
+            .append(":8080/?command=getcirclelist&city=").append(city);
+    asyncHttpClient.get(getCircles.toString(), new AsyncHttpResponseHandler()
+    {
+                @Override
+                public void onSuccess(String response) {
+                try {
+                    gridAdapter.setHashMap(getData(new JSONObject(response)));
+                    gridView.setAdapter(gridAdapter);
+                }
+                catch (JSONException e)
+                {
 
-              }
+        }
 
-             // System.out.println(response);
-          }
-      });
+        // System.out.println(response);
+      }
+    });
     super.setContentView(mView);
   }
 
@@ -171,6 +172,11 @@ public class CircleDialog extends Dialog {
 
   }
 
+  /**
+   * Volley 方式
+   * 
+   * @param city
+   */
   private void getCityCircles(String city)
   {
     StringBuilder getCircles =
@@ -209,6 +215,9 @@ public class CircleDialog extends Dialog {
 
   }
 
+  /**
+   * asynctask方式
+   */
   public class getCircles extends AsyncTask<String, Integer, String>
   {
 

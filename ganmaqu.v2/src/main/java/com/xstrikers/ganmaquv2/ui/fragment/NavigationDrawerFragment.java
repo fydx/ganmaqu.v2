@@ -1,4 +1,4 @@
-package com.xstrikers.ganmaquv2.ui;
+package com.xstrikers.ganmaquv2.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xstrikers.ganmaquv2.R;
+import com.xstrikers.ganmaquv2.ui.SelectCityActivity;
 
 ;
 
