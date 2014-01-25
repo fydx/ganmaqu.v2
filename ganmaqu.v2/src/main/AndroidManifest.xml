@@ -46,6 +46,7 @@
             android:label="@string/selectcity">
 
         </activity>
+        <activity android:name=".ui.ResultActivity" />
     </application>
 
 </manifest>
