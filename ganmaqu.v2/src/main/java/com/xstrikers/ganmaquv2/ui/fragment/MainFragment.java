@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,14 +26,14 @@ import com.xstrikers.ganmaquv2.ui.dialog.CircleDialog;
  * Created by LB on 14-1-18.
  */
 public class MainFragment extends android.support.v4.app.Fragment {
-  // private String city;
+  private String city;
   private SharedPreferences userInfo;
   private Button circleButton;
   private RadioButton familyRadioButton, friendsRadioButton, coupleRadioButton;
   private String selectType;
   private final String types[] = new String[] {"亲子出行", "朋友出行", "情侣出行"};
   private Boolean full = true;
-
+  private Dialog dialogTrans;
   private LocationManagerHelper locationManagerHelper;
 
 
@@ -42,12 +43,12 @@ public class MainFragment extends android.support.v4.app.Fragment {
     userInfo = getActivity().getSharedPreferences("userInfo", 0);
     circleButton = (Button) rootView.findViewById(R.id.main_button_circle);
     locationManagerHelper = LocationManagerHelper.getInstance();
-
+    city = userInfo.getString("city", "西安市");
     circleButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         CircleDialog circleDialog =
-            new CircleDialog(getActivity(), userInfo.getString("city", "西安市"), getActivity());
+            new CircleDialog(getActivity(), city, getActivity());
         circleDialog.setbutton(circleButton);
         circleDialog.show();
 
@@ -70,12 +71,31 @@ public class MainFragment extends android.support.v4.app.Fragment {
           selectType = types[2];
 
       }
+
+
     });
+    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+    asyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
+        + ":8080/?command=getshopcircle&city=" + city + "&pos_x=" + locationManagerHelper.getLng()
+        + "&pos_y=" + locationManagerHelper.getLat(), new AsyncHttpResponseHandler() {
+      @Override
+      public void onSuccess(String response)
+      {
+        circleButton.setText(response);
+      }
+    }
+        );
     Button getRouteButton = (Button) rootView.findViewById(R.id.button_getRoute);
     getRouteButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+
         enterRouteActivity();
+          dialogTrans = new Dialog(getActivity(),
+                  R.style.activity_translucent);
+          dialogTrans.setContentView(R.layout.dialog_connect);
+          dialogTrans.show();
+        // Log.i("ganmaqu","Location : " +locationManagerHelper.getLocation());
       }
     });
     return rootView;
@@ -83,8 +103,12 @@ public class MainFragment extends android.support.v4.app.Fragment {
 
   private void enterRouteActivity()
   {
-    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-    RequestParams params = new RequestParams();
+    final AsyncHttpClient asyncHttpClient, circleAsyncHttpClient;
+
+    asyncHttpClient = new AsyncHttpClient();
+    circleAsyncHttpClient = new AsyncHttpClient();
+
+    final RequestParams params = new RequestParams();
     if (full == true)
     {
       params.put("command", "full");
@@ -94,8 +118,8 @@ public class MainFragment extends android.support.v4.app.Fragment {
     {
       params.put("command", "part");
     }
-    params.put("pos_x", "0.0");
-    params.put("pos_y", "0.0");
+    // params.put("pos_x", String.valueOf(locationManagerHelper.getLng()));
+    // params.put("pos_y", String.valueOf(locationManagerHelper.getLat()));
     JSONObject json = new JSONObject();
     JSONArray item = new JSONArray();
     try {
@@ -113,15 +137,33 @@ public class MainFragment extends android.support.v4.app.Fragment {
 
     params.put("id", "root");
     Log.i("ganmaqu", "POST Params :  " + params.toString());
-    asyncHttpClient.post("http://" + getActivity().getResources().getString(R.string.Hostname)
-        + ":8080/", params, new AsyncHttpResponseHandler()
+    circleAsyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
+        + ":8080/?command=circlepos&city=" + city + "&circleName="
+        + circleButton.getText().toString(), new AsyncHttpResponseHandler()
     {
       @Override
-      public void onSuccess(String response)
-      {
-        Log.i("ganmaqu", "Result : " + response);
+      public void onSuccess(String response) {
+        try {
+          Log.i("ganmaqu", "Circle Position : " + response);
+          JSONObject jsonObject = new JSONObject(response);
+          params.put("pos_x", jsonObject.getString("lng"));
+          params.put("pos_y", jsonObject.getString("lat"));
+        }
+        catch (JSONException e)
+        {
+
+        }
+        asyncHttpClient.post("http://" + getActivity().getResources().getString(R.string.Hostname)
+            + ":8080/", params, new AsyncHttpResponseHandler() {
+          @Override
+          public void onSuccess(String response) {
+            Log.i("ganmaqu", "Result : " + response);
+              dialogTrans.dismiss();
+          }
+        });
       }
     });
+
 
   }
 }
