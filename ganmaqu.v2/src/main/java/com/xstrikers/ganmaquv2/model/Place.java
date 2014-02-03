@@ -184,11 +184,26 @@ public class Place implements Serializable {
     this.time = time;
   }
 
-  @Override
-  public String toString()
-  {
-    return shopName;
-  }
-
-
+    @Override
+    public String toString() {
+        return "Place{" +
+                "_id=" + _id +
+                ", address='" + address + '\'' +
+                ", cost=" + cost +
+                ", detailType='" + detailType + '\'' +
+                ", id=" + id +
+                ", routeId=" + routeId +
+                ", mainType='" + mainType + '\'' +
+                ", lng=" + lng +
+                ", lat=" + lat +
+                ", rate=" + rate +
+                ", shopName='" + shopName + '\'' +
+                ", suitType='" + suitType + '\'' +
+                ", telNumber='" + telNumber + '\'' +
+                ", time='" + time + '\'' +
+                ", routeType='" + routeType + '\'' +
+                ", picUrl='" + picUrl + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

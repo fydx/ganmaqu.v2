@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
+import com.xstrikers.ganmaquv2.ui.ResultActivity;
 import com.xstrikers.ganmaquv2.ui.dialog.CircleDialog;
 
 /**
@@ -159,6 +161,9 @@ public class MainFragment extends android.support.v4.app.Fragment {
           public void onSuccess(String response) {
             Log.i("ganmaqu", "Result : " + response);
               dialogTrans.dismiss();
+              Intent intent = new Intent(getActivity(), ResultActivity.class);
+              intent.putExtra("result",response);
+              startActivity(intent);
           }
         });
       }

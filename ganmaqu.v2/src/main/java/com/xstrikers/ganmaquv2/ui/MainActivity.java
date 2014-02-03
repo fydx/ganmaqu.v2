@@ -146,12 +146,12 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
     Toast.makeText(this, String.valueOf(position), 1000);
   }
 
-  public void onSectionAttached(int number) {
-    switch (number) {
-      case 1:
-        mTitle = getString(R.string.title_section1);
-        break;
-    }
+    public void onSectionAttached(int number) {
+        switch (number) {
+            case 1:
+                mTitle = getString(R.string.title_section1);
+                break;
+        }
   }
 
   public void restoreActionBar() {
