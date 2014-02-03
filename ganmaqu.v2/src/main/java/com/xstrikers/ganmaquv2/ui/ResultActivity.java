@@ -7,11 +7,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,6 +51,17 @@ public class ResultActivity extends ActionBarActivity {
     Log.i("ganmaqu","In Result Activity : " + places.toString());
     ListView listView = (ListView) findViewById(R.id.listView_result);
     PlaceAdapter placeAdapter  =  new PlaceAdapter(ResultActivity.this,R.layout.listitem_result,R.id.result_name,places);
+    listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(ResultActivity.this,DetailActivity.class);
+            intent.putExtra("name",places.get(position).getShopName());
+            intent.putExtra("addr",places.get(position).getAddress());
+            intent.putExtra("cost",String.valueOf(places.get(position).getCost()));
+            intent.putExtra("info",places.get(position).getInfo());
+            startActivity(intent);
+        }
+    });
     listView.setAdapter(placeAdapter);
 
   }

@@ -47,6 +47,7 @@
 
         </activity>
         <activity android:name=".ui.ResultActivity" />
+        <activity android:name=".ui.DetailActivity" />
     </application>
 
 </manifest>

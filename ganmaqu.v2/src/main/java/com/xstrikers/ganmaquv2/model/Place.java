@@ -25,6 +25,41 @@ public class Place implements Serializable {
   private String routeType;
   private String picUrl;
   private int weight;
+  private String info;
+
+  public String getInfo() {
+    return info;
+  }
+
+  public void setInfo(String info) {
+    this.info = info;
+  }
+
+  public int getRouteId() {
+    return routeId;
+  }
+
+  public void setRouteId(int routeId) {
+    this.routeId = routeId;
+  }
+
+  public double getLng() {
+    return lng;
+  }
+
+  public void setLng(double lng) {
+    this.lng = lng;
+  }
+
+  public double getLat() {
+    return lat;
+  }
+
+  public void setLat(double lat) {
+    this.lat = lat;
+  }
+
+
 
   public int getWeight() {
     return weight;
@@ -184,26 +219,26 @@ public class Place implements Serializable {
     this.time = time;
   }
 
-    @Override
-    public String toString() {
-        return "Place{" +
-                "_id=" + _id +
-                ", address='" + address + '\'' +
-                ", cost=" + cost +
-                ", detailType='" + detailType + '\'' +
-                ", id=" + id +
-                ", routeId=" + routeId +
-                ", mainType='" + mainType + '\'' +
-                ", lng=" + lng +
-                ", lat=" + lat +
-                ", rate=" + rate +
-                ", shopName='" + shopName + '\'' +
-                ", suitType='" + suitType + '\'' +
-                ", telNumber='" + telNumber + '\'' +
-                ", time='" + time + '\'' +
-                ", routeType='" + routeType + '\'' +
-                ", picUrl='" + picUrl + '\'' +
-                ", weight=" + weight +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Place{" +
+        "_id=" + _id +
+        ", address='" + address + '\'' +
+        ", cost=" + cost +
+        ", detailType='" + detailType + '\'' +
+        ", id=" + id +
+        ", routeId=" + routeId +
+        ", mainType='" + mainType + '\'' +
+        ", lng=" + lng +
+        ", lat=" + lat +
+        ", rate=" + rate +
+        ", shopName='" + shopName + '\'' +
+        ", suitType='" + suitType + '\'' +
+        ", telNumber='" + telNumber + '\'' +
+        ", time='" + time + '\'' +
+        ", routeType='" + routeType + '\'' +
+        ", picUrl='" + picUrl + '\'' +
+        ", weight=" + weight +
+        '}';
+  }
 }
