@@ -164,6 +164,8 @@ public class MainFragment extends android.support.v4.app.Fragment {
               Intent intent = new Intent(getActivity(), ResultActivity.class);
               intent.putExtra("result",response);
               startActivity(intent);
+              getActivity().overridePendingTransition(android.R.anim.fade_in,
+                      android.R.anim.fade_out);
           }
         });
       }

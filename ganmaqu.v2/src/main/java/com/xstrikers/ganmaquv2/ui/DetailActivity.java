@@ -1,10 +1,14 @@
 package com.xstrikers.ganmaquv2.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.xstrikers.ganmaquv2.R;
@@ -40,5 +44,15 @@ public class DetailActivity extends ActionBarActivity {
         nameTextView.setText(getIntent().getStringExtra("name"));
         addrTextView.setText(getIntent().getStringExtra("addr"));
         costTextView.setText(getIntent().getStringExtra("cost"));
+        Button callButton = (Button)findViewById(R.id.call);
+        callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("tel:" + getIntent().getStringExtra("tel"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                startActivity(intent);
+
+            }
+        });
     }
 }

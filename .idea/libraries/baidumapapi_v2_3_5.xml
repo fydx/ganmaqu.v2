@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="baidumapapi_v2_3_5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ganmaqu.v2/libs/baidumapapi_v2_3_5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

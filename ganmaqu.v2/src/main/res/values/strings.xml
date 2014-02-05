@@ -14,5 +14,6 @@
     <string name="locationRightNow">自动检测中..请稍后</string>
     <string name="manualSelect">手动选择</string>
     <string name="autoSelect">自动选择</string>
+    <string name="map">查看地图</string>
 
 </resources>
