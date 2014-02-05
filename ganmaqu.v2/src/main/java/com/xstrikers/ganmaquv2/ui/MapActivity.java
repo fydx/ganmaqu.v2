@@ -54,6 +54,7 @@ import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.xstrikers.ganmaquv2.R;
+import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
 import com.xstrikers.ganmaquv2.model.Place;
 
 public class MapActivity extends Activity {
@@ -105,18 +106,20 @@ public class MapActivity extends Activity {
 	private SharedPreferences userInfo ;
 	private int mode ;
 	private String city;
+    private LocationManagerHelper locationManagerHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+        locationManagerHelper = LocationManagerHelper.getInstance();
 		ganmaquApplication app = (ganmaquApplication) this.getApplication();
 		final int markers_id[] = { R.drawable.icon_1, R.drawable.icon_2,
 				R.drawable.icon_3, R.drawable.icon_4, R.drawable.icon_5,R.drawable.icon_6 };
+
 		// BMapManager 必须在setContentview前面初始化，否则报错
 		if (app.mBMapManager == null) {
-			app.mBMapManager = new BMapManager(this);
+			app.mBMapManager = new BMapManager(this.getApplicationContext());
 			app.mBMapManager.init(ganmaquApplication.strKey,
 					new ganmaquApplication.MyGeneralListener());
 		}
