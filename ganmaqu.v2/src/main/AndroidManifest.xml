@@ -26,11 +26,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_GPS" />
-    <service
-        android:name="com.baidu.location.f"
-        android:enabled="true"
-        android:process=":remote" >
-    </service>
+
 
     <application
         android:name="com.xstrikers.ganmaquv2.ui.ganmaquApplication"
@@ -59,6 +55,11 @@
         </activity>
         <activity android:name=".ui.ResultActivity" />
         <activity android:name=".ui.DetailActivity" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
     </application>
 
 </manifest>

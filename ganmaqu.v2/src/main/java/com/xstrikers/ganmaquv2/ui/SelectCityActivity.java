@@ -48,14 +48,14 @@ public class SelectCityActivity extends Activity {
     listView = (ListView) findViewById(R.id.listView_city);
     // cities = new ArrayList<String>();
 
-    userInfo = this.getSharedPreferences("userInfo", 0);
-    locationManagerHelper = LocationManagerHelper.getInstance();
-    locationManagerHelper.setLocationManager((LocationManager) this
-        .getSystemService(Context.LOCATION_SERVICE));
-    locationManagerHelper.start();
-    mRequestQueue = Volley.newRequestQueue(this);
-    getAvailableCities();
-    getLocationCity();
+      userInfo = this.getSharedPreferences("userInfo", 0);
+      locationManagerHelper = LocationManagerHelper.getInstance();
+      locationManagerHelper.setLocationManager((LocationManager) this
+              .getSystemService(Context.LOCATION_SERVICE));
+      locationManagerHelper.start();
+      mRequestQueue = Volley.newRequestQueue(this);
+      getAvailableCities();
+      getLocationCity();
 
 
   }

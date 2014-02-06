@@ -23,9 +23,7 @@ public class ganmaquApplication extends Application {
     public double circle_lat;
     public double circle_lng;
     public enum types {EAT,SHOP,MOVIE,SCENE,COFFEE,KTV};
-    
-    //public static final String strKey = "970293a9a6573c4517821ee70a7e30a5";  // for baiduapi 
-     public static final String strKey = "397c8e382ee8dcc520182990a807b1b9"; // for XPS 
+    public static final String strKey = "4QMZ8wQO95NVkEKKAG8LgzDo"; // for XPS
      
     /*
     	注意：为了给用户提供更安全的服务，Android SDK自v2.1.3版本开始采用了全新的Key验证体系。

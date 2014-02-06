@@ -28,7 +28,6 @@ import com.xstrikers.ganmaquv2.ui.dialog.CircleDialog;
  * Created by LB on 14-1-18.
  */
 public class MainFragment extends android.support.v4.app.Fragment {
-  private String city;
   private SharedPreferences userInfo;
   private Button circleButton;
   private RadioButton familyRadioButton, friendsRadioButton, coupleRadioButton;
@@ -45,12 +44,12 @@ public class MainFragment extends android.support.v4.app.Fragment {
     userInfo = getActivity().getSharedPreferences("userInfo", 0);
     circleButton = (Button) rootView.findViewById(R.id.main_button_circle);
     locationManagerHelper = LocationManagerHelper.getInstance();
-    city = userInfo.getString("city", "西安市");
+
     circleButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         CircleDialog circleDialog =
-            new CircleDialog(getActivity(), city, getActivity());
+            new CircleDialog(getActivity(), userInfo.getString("city", "西安市"), getActivity());
         circleDialog.setbutton(circleButton);
         circleDialog.show();
 
@@ -76,17 +75,7 @@ public class MainFragment extends android.support.v4.app.Fragment {
 
 
     });
-    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-    asyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
-        + ":8080/?command=getshopcircle&city=" + city + "&pos_x=" + locationManagerHelper.getLng()
-        + "&pos_y=" + locationManagerHelper.getLat(), new AsyncHttpResponseHandler() {
-      @Override
-      public void onSuccess(String response)
-      {
-        circleButton.setText(response);
-      }
-    }
-        );
+    showCircle();
     Button getRouteButton = (Button) rootView.findViewById(R.id.button_getRoute);
     getRouteButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -140,7 +129,7 @@ public class MainFragment extends android.support.v4.app.Fragment {
     params.put("id", "root");
     Log.i("ganmaqu", "POST Params :  " + params.toString());
     circleAsyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
-        + ":8080/?command=circlepos&city=" + city + "&circleName="
+        + ":8080/?command=circlepos&city=" + userInfo.getString("city", "西安市") + "&circleName="
         + circleButton.getText().toString(), new AsyncHttpResponseHandler()
     {
       @Override
@@ -173,4 +162,20 @@ public class MainFragment extends android.support.v4.app.Fragment {
 
 
   }
+
+  public void showCircle()
+  {
+
+    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+    asyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
+    + ":8080/?command=getshopcircle&city=" + userInfo.getString("city", "西安市") + "&pos_x=" + locationManagerHelper.getLng()
+            + "&pos_y=" + locationManagerHelper.getLat(), new AsyncHttpResponseHandler() {
+        @Override
+        public void onSuccess(String response)
+        {
+            circleButton.setText(response);
+        }
+    }
+    );
+}
 }

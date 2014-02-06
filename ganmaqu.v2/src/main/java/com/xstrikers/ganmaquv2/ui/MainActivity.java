@@ -237,6 +237,9 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
     String result = data.getStringExtra("city");// 得到新Activity 关闭后返回的数据
     Log.i("ganmaqu", result);
     mNavigationDrawerFragment.setCityText(result);
+    MainFragment mainFragment =   (MainFragment)
+              getSupportFragmentManager().findFragmentById(R.id.container);
+    mainFragment.showCircle();
   }
 
 

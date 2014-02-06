@@ -617,18 +617,18 @@ public class MapActivity extends Activity {
 	/**
 	 * 定位方法
 	 */
-	public void initLoc() {
-		// 定位初始化
-		mLocClient = new LocationClient(getApplicationContext());
-
-		locData = new LocationData();
-		mLocClient.registerLocationListener(myListener);
-		LocationClientOption option = new LocationClientOption();
-		option.setOpenGps(true);// 打开gps
-		option.setCoorType("bd09ll"); // 设置坐标类型
-		option.setScanSpan(5000);
-		mLocClient.setLocOption(option);
-		mLocClient.start();
+    public void initLoc() {
+        // 定位初始化
+        mLocClient = new LocationClient(getApplicationContext());
+        mLocClient.setAK("4QMZ8wQO95NVkEKKAG8LgzDo");
+        locData = new LocationData();
+        mLocClient.registerLocationListener(myListener);
+        LocationClientOption option = new LocationClientOption();
+        option.setOpenGps(true);// 打开gps
+        option.setCoorType("bd09ll"); // 设置坐标类型
+        option.setScanSpan(5000);
+        mLocClient.setLocOption(option);
+        mLocClient.start();
 
 		// 定位图层初始化
 		myLocationOverlay = new MyLocationOverlay(mMapView);
