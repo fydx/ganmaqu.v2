@@ -75,6 +75,8 @@
     <orderEntry type="library" exported="" name="support-v4-19.0.0" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
     <orderEntry type="library" exported="" name="baidumapapi_v2_3_5" level="project" />
+    <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.haarman.listviewanimations-2.5.2" level="project" />
   </component>
 </module>
 

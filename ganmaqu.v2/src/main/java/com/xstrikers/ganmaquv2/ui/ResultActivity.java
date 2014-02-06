@@ -21,6 +21,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.haarman.listviewanimations.swinginadapters.AnimationAdapter;
+import com.haarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
+import com.haarman.listviewanimations.swinginadapters.prepared.SwingLeftInAnimationAdapter;
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.model.Place;
 import com.xstrikers.ganmaquv2.ui.adapter.PlaceAdapter;
@@ -69,7 +72,9 @@ public class ResultActivity extends ActionBarActivity {
         startActivity(intent);
       }
     });
-    listView.setAdapter(placeAdapter);
+    AnimationAdapter animAdapter = new AlphaInAnimationAdapter(placeAdapter);
+    animAdapter.setAbsListView(listView);
+    listView.setAdapter(animAdapter);
 
   }
 
@@ -79,37 +84,38 @@ public class ResultActivity extends ActionBarActivity {
     this.getMenuInflater().inflate(R.menu.result, menu);
     return super.onCreateOptionsMenu(menu);
   }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int i1 = item.getItemId();
-        if (i1 == R.id.change) {
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    int i1 = item.getItemId();
+    if (i1 == R.id.change) {
 
 
 
-        } else if (i1 == R.id.save) {
-            //saveToDB(places);
-//            Intent intent3 = new Intent();
-//            intent3.setClass(getApplicationContext(), ShareActivity.class);
-//            intent3.putExtra("places", (Serializable) places);
-//            startActivity(intent3);
-//            finish();
+    } else if (i1 == R.id.save) {
+      // saveToDB(places);
+      // Intent intent3 = new Intent();
+      // intent3.setClass(getApplicationContext(), ShareActivity.class);
+      // intent3.putExtra("places", (Serializable) places);
+      // startActivity(intent3);
+      // finish();
 
-        } else if (i1 == R.id.map) {
-            Intent intent = new Intent();
-            intent.setClass(getApplicationContext(), MapActivity.class); // set
-            // new
-            // map
-            // activity
-            intent.putExtra("places", (Serializable) places);
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in,
-                    android.R.anim.fade_out);
+    } else if (i1 == R.id.map) {
+      Intent intent = new Intent();
+      intent.setClass(getApplicationContext(), MapActivity.class); // set
+      // new
+      // map
+      // activity
+      intent.putExtra("places", (Serializable) places);
+      startActivity(intent);
+      overridePendingTransition(android.R.anim.fade_in,
+          android.R.anim.fade_out);
 
-        } else {
-        }
+    } else {}
 
-        return true;
-    }
+    return true;
+  }
+
   private List<Place> decodeJson(String result)
   {
     List<Place> places;
