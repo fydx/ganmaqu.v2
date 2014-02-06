@@ -40,6 +40,7 @@ public class ResultActivity extends ActionBarActivity {
     ActionBar actionBar = getSupportActionBar();
     actionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP,
         ActionBar.DISPLAY_HOME_AS_UP);
+    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
     actionBar.setDisplayShowHomeEnabled(false);
     actionBar.setTitle("推荐路线");
     actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.main_actionbar_bg));
