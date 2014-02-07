@@ -2,6 +2,8 @@ package com.xstrikers.ganmaquv2.model;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by LB on 14-1-15.
  */
@@ -9,100 +11,41 @@ public class Place implements Serializable {
 
   private int _id; // 数据库主键
   private static final long serialVersionUID = 1L;
+  @Expose
   private String address;
+  @Expose
   private int cost;
+  @Expose
   private String detailType;
+  @Expose
   private int id;
-  private int routeId; // 路线的id
+  @Expose
   private String mainType;
-  private double lng;
-  private double lat;
+  // private double lng;
+  // private double lat;
+  @Expose
+  private double pos_x;
+  @Expose
+  private double pos_y;
+  @Expose
   private int rate;
+  @Expose
   private String shopName;
+  @Expose
   private String suitType;
+  @Expose
   private String telNumber;
+  @Expose
   private String time;
-  private String routeType;
+  @Expose
   private String picUrl;
+  @Expose
   private int weight;
+  @Expose
   private String info;
 
-
-  public String getInfo() {
-    return info;
-  }
-
-  public void setInfo(String info) {
-    this.info = info;
-  }
-
-  public int getRouteId() {
-    return routeId;
-  }
-
-  public void setRouteId(int routeId) {
-    this.routeId = routeId;
-  }
-
-  public double getLng() {
-    return lng;
-  }
-
-  public void setLng(double lng) {
-    this.lng = lng;
-  }
-
-  public double getLat() {
-    return lat;
-  }
-
-  public void setLat(double lat) {
-    this.lat = lat;
-  }
-
-
-
-  public int getWeight() {
-    return weight;
-  }
-
-  public void setWeight(int weight) {
-    this.weight = weight;
-  }
-
-  public String getPicUrl() {
-    return picUrl;
-  }
-
-  public void setPicUrl(String picUrl) {
-    this.picUrl = picUrl;
-  }
-
-  public String getRouteType() {
-    return routeType;
-  }
-
-  public void setRouteType(String routeType) {
-    this.routeType = routeType;
-  }
-
-  public int get_id() {
-    return _id;
-  }
-
-  public void set_id(int _id) {
-    this._id = _id;
-  }
-
-  public int getrouteId() {
-    return routeId;
-  }
-
-  public void setrouteId(int routeId) {
-    this.routeId = routeId;
-  }
-
-  public Place() {
+  public Place()
+  {
 
   }
 
@@ -134,8 +77,8 @@ public class Place implements Serializable {
     return id;
   }
 
-  public void setId(int i) {
-    this.id = i;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getMainType() {
@@ -146,20 +89,20 @@ public class Place implements Serializable {
     this.mainType = mainType;
   }
 
-  public double getlng() {
-    return lng;
+  public double getPos_x() {
+    return pos_x;
   }
 
-  public void setlng(double lng) {
-    this.lng = lng;
+  public void setPos_x(double pos_x) {
+    this.pos_x = pos_x;
   }
 
-  public double getlat() {
-    return lat;
+  public double getPos_y() {
+    return pos_y;
   }
 
-  public void setlat(double lat) {
-    this.lat = lat;
+  public void setPos_y(double pos_y) {
+    this.pos_y = pos_y;
   }
 
   public int getRate() {
@@ -202,6 +145,38 @@ public class Place implements Serializable {
     this.time = time;
   }
 
+  public String getPicUrl() {
+    return picUrl;
+  }
+
+  public void setPicUrl(String picUrl) {
+    this.picUrl = picUrl;
+  }
+
+  public int getWeight() {
+    return weight;
+  }
+
+  public void setWeight(int weight) {
+    this.weight = weight;
+  }
+
+  public String getInfo() {
+    return info;
+  }
+
+  public void setInfo(String info) {
+    this.info = info;
+  }
+
+  public int get_id() {
+    return _id;
+  }
+
+  public void set_id(int _id) {
+    this._id = _id;
+  }
+
   public Place(String address, int cost, String detailType, int id,
       String mainType, double lng, double lat, int rate,
       String shopName, String suitType, String telNumber, String time) {
@@ -211,8 +186,8 @@ public class Place implements Serializable {
     this.detailType = detailType;
     this.id = id;
     this.mainType = mainType;
-    this.lng = lng;
-    this.lat = lat;
+    this.pos_x = lng;
+    this.pos_y = lat;
     this.rate = rate;
     this.shopName = shopName;
     this.suitType = suitType;
@@ -228,16 +203,14 @@ public class Place implements Serializable {
         ", cost=" + cost +
         ", detailType='" + detailType + '\'' +
         ", id=" + id +
-        ", routeId=" + routeId +
         ", mainType='" + mainType + '\'' +
-        ", lng=" + lng +
-        ", lat=" + lat +
+        ", lng=" + pos_x +
+        ", lat=" + pos_y +
         ", rate=" + rate +
         ", shopName='" + shopName + '\'' +
         ", suitType='" + suitType + '\'' +
         ", telNumber='" + telNumber + '\'' +
         ", time='" + time + '\'' +
-        ", routeType='" + routeType + '\'' +
         ", picUrl='" + picUrl + '\'' +
         ", weight=" + weight +
         '}';

@@ -25,7 +25,7 @@ import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
 import com.xstrikers.ganmaquv2.ui.ResultActivity;
 import com.xstrikers.ganmaquv2.ui.dialog.CircleDialog;
-import com.xstrikers.ganmaquv2.util.DecodeUtil;
+
 
 /**
  * Created by LB on 14-1-18.

@@ -36,7 +36,7 @@ public class PlaceAdapter extends com.haarman.listviewanimations.ArrayAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
     // View v = super.getView(position, convertView, parent);
     View v = LayoutInflater.from(mContext).inflate(R.layout.listitem_result, parent, false);
-    Log.i("ganmaqu", Places.get(position).toString());
+   // Log.i("ganmaqu", Places.get(position).toString());
     if (v != convertView && v != null) {
       ViewHolder holder = new ViewHolder();
       holder.nameTextView = (TextView) v.findViewById(R.id.result_name);

@@ -19,6 +19,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.haarman.listviewanimations.swinginadapters.AnimationAdapter;
 import com.haarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
 import com.xstrikers.ganmaquv2.R;
@@ -58,8 +61,11 @@ public class ResultActivity extends ActionBarActivity {
         title.setTextColor(Color.WHITE);
       }
     }
+    Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
     placesJSON = getIntent().getStringExtra("result");
-    places = DecodeUtil.decodeJson(placesJSON);
+   // places = DecodeUtil.decodeJson(placesJSON);
+    places = gson.fromJson(placesJSON,new TypeToken<List<Place>>(){}.getType());
     Log.i("ganmaqu", "Place Num : " + String.valueOf(places.size()));
     Log.i("ganmaqu", "In Result Activity : " + places.toString());
 
