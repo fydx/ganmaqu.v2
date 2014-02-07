@@ -1,5 +1,7 @@
 package com.xstrikers.ganmaquv2.ui.fragment;
 
+import java.io.Serializable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +25,7 @@ import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
 import com.xstrikers.ganmaquv2.ui.ResultActivity;
 import com.xstrikers.ganmaquv2.ui.dialog.CircleDialog;
+import com.xstrikers.ganmaquv2.util.DecodeUtil;
 
 /**
  * Created by LB on 14-1-18.
@@ -36,7 +39,6 @@ public class MainFragment extends android.support.v4.app.Fragment {
   private Boolean full = true;
   private Dialog dialogTrans;
   private LocationManagerHelper locationManagerHelper;
-
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,7 +54,6 @@ public class MainFragment extends android.support.v4.app.Fragment {
             new CircleDialog(getActivity(), userInfo.getString("city", "西安市"), getActivity());
         circleDialog.setbutton(circleButton);
         circleDialog.show();
-
       }
     });
     selectType = types[0];
@@ -82,10 +83,10 @@ public class MainFragment extends android.support.v4.app.Fragment {
       public void onClick(View v) {
 
         enterRouteActivity();
-          dialogTrans = new Dialog(getActivity(),
-                  R.style.activity_translucent);
-          dialogTrans.setContentView(R.layout.dialog_connect);
-          dialogTrans.show();
+        dialogTrans = new Dialog(getActivity(),
+            R.style.activity_translucent);
+        dialogTrans.setContentView(R.layout.dialog_connect);
+        dialogTrans.show();
         // Log.i("ganmaqu","Location : " +locationManagerHelper.getLocation());
       }
     });
@@ -115,17 +116,11 @@ public class MainFragment extends android.support.v4.app.Fragment {
     JSONArray item = new JSONArray();
     try {
       json.put("item", item);
-    } catch (JSONException e)
-    {
-
-    }
-    try {
       params.put("json", json.getString("item"));
     } catch (JSONException e)
     {
-
+      Log.e("ganmaqu",e.toString());
     }
-
     params.put("id", "root");
     Log.i("ganmaqu", "POST Params :  " + params.toString());
     circleAsyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
@@ -149,12 +144,12 @@ public class MainFragment extends android.support.v4.app.Fragment {
           @Override
           public void onSuccess(String response) {
             Log.i("ganmaqu", "Result : " + response);
-              dialogTrans.dismiss();
-              Intent intent = new Intent(getActivity(), ResultActivity.class);
-              intent.putExtra("result",response);
-              startActivity(intent);
-              getActivity().overridePendingTransition(android.R.anim.fade_in,
-                      android.R.anim.fade_out);
+            dialogTrans.dismiss();
+            Intent intent = new Intent(getActivity(), ResultActivity.class);
+            intent.putExtra("result", response);
+            startActivity(intent);
+            getActivity().overridePendingTransition(android.R.anim.fade_in,
+                android.R.anim.fade_out);
           }
         });
       }
@@ -168,14 +163,17 @@ public class MainFragment extends android.support.v4.app.Fragment {
 
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
     asyncHttpClient.get("http://" + getActivity().getResources().getString(R.string.Hostname)
-    + ":8080/?command=getshopcircle&city=" + userInfo.getString("city", "西安市") + "&pos_x=" + locationManagerHelper.getLng()
-            + "&pos_y=" + locationManagerHelper.getLat(), new AsyncHttpResponseHandler() {
-        @Override
-        public void onSuccess(String response)
-        {
-            circleButton.setText(response);
-        }
+        + ":8080/?command=getshopcircle&city=" + userInfo.getString("city", "西安市") + "&pos_x="
+        + locationManagerHelper.getLng()
+        + "&pos_y=" + locationManagerHelper.getLat(), new AsyncHttpResponseHandler() {
+      @Override
+      public void onSuccess(String response)
+      {
+        circleButton.setText(response);
+      }
     }
-    );
-}
+        );
+  }
+
+
 }

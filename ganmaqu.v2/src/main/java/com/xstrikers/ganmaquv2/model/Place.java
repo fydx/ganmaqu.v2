@@ -27,6 +27,7 @@ public class Place implements Serializable {
   private int weight;
   private String info;
 
+
   public String getInfo() {
     return info;
   }

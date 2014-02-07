@@ -23,13 +23,8 @@ public class ganmaquApplication extends Application {
     public double circle_lat;
     public double circle_lng;
     public enum types {EAT,SHOP,MOVIE,SCENE,COFFEE,KTV};
-    public static final String strKey = "4QMZ8wQO95NVkEKKAG8LgzDo"; // for XPS
-     
-    /*
-    	注意：为了给用户提供更安全的服务，Android SDK自v2.1.3版本开始采用了全新的Key验证体系。
-    	因此，当您选择使用v2.1.3及之后版本的SDK时，需要到新的Key申请页面进行全新Key的申请，
-    	申请及配置流程请参考开发指南的对应章节
-    */
+    public static final String strKey = "4QMZ8wQO95NVkEKKAG8LgzDo"; // KEY
+
 	
 	@Override
     public void onCreate() {
@@ -97,4 +92,5 @@ public class ganmaquApplication extends Application {
         }
        
     }
+
 }

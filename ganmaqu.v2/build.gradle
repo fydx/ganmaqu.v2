@@ -31,6 +31,7 @@ dependencies {
     compile files('libs/android-async-http-1.4.4.jar')
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/com.haarman.listviewanimations-2.5.2.jar')
+    compile files('libs/afinal_0.5.jar')
 
 }
 tasks.withType(Compile) {
