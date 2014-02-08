@@ -18,7 +18,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
-
+/**
+  此类仅供调试使用
+  ONLY FOR DEBUG
+ */
 public final class Connect
 {
   private volatile static Connect uniqueInstance;

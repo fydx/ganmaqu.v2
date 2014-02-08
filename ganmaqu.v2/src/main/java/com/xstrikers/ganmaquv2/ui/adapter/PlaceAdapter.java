@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.model.Place;
+import com.xstrikers.ganmaquv2.ui.ResultActivity;
 
 /**
  * Created by LB on 14-1-27.
@@ -31,9 +33,10 @@ public class PlaceAdapter extends com.haarman.listviewanimations.ArrayAdapter {
 
   private class ViewHolder {
     TextView typeTextView, nameTextView, addrTextView, payTextView;
+    Button deleteButton;
   }
 
-  public View getView(int position, View convertView, ViewGroup parent) {
+  public View getView(final int position, View convertView, ViewGroup parent) {
     // View v = super.getView(position, convertView, parent);
     View v = LayoutInflater.from(mContext).inflate(R.layout.listitem_result, parent, false);
    // Log.i("ganmaqu", Places.get(position).toString());
@@ -43,7 +46,7 @@ public class PlaceAdapter extends com.haarman.listviewanimations.ArrayAdapter {
       holder.typeTextView = (TextView) v.findViewById(R.id.result_type);
       holder.addrTextView = (TextView) v.findViewById(R.id.result_address);
       holder.payTextView = (TextView) v.findViewById(R.id.result_pay);
-
+      holder.deleteButton = (Button) v.findViewById(R.id.result_delete);
       // holder.dragImageView = iv;
       v.setTag(holder);
     }
@@ -53,7 +56,12 @@ public class PlaceAdapter extends com.haarman.listviewanimations.ArrayAdapter {
     holder.typeTextView.setText(Places.get(position).getMainType());
     holder.addrTextView.setText(Places.get(position).getAddress());
     holder.payTextView.setText(String.valueOf(Places.get(position).getCost()));
-
+    holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ResultActivity.animateDismissAdapter.animateDismiss(position);
+        }
+    });
 
     return v;
   }
