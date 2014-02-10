@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.net.Connect;
+import com.xstrikers.ganmaquv2.ui.PoiSearchActivity;
 
 /**
  * Created by LB on 14-1-22.
@@ -84,6 +86,14 @@ public class CircleDialog extends Dialog {
       }
     });
     super.setContentView(mView);
+    Button myCircleButton = (Button)mView.findViewById(R.id.button_myCircle);
+      myCircleButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent intent = new Intent(activity.getApplication(), PoiSearchActivity.class);
+              activity.startActivityForResult(intent,2);
+          }
+      });
   }
 
 

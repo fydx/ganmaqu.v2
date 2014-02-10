@@ -53,6 +53,11 @@
             android:label="@string/map">
 
         </activity>
+        <activity
+            android:name=".ui.PoiSearchActivity"
+            android:label="@string/map">
+
+        </activity>
         <activity android:name=".ui.ResultActivity" />
         <activity android:name=".ui.DetailActivity" />
         <service

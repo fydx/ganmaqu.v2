@@ -1,5 +1,9 @@
 package com.xstrikers.ganmaquv2.ui;
 
+import java.util.List;
+
+import net.tsz.afinal.FinalDb;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,15 +35,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.map.LocationManagerHelper;
-import com.xstrikers.ganmaquv2.model.Place;
 import com.xstrikers.ganmaquv2.model.Route;
 import com.xstrikers.ganmaquv2.ui.fragment.MainFragment;
 import com.xstrikers.ganmaquv2.ui.fragment.NavigationDrawerFragment;
-
-import net.tsz.afinal.FinalDb;
-
-import java.io.Serializable;
-import java.util.List;
 
 public class MainActivity extends android.support.v7.app.ActionBarActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -56,8 +54,9 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
   private RequestQueue mRequestQueue;
   private StringBuilder geocodingURL;
   private SharedPreferences userInfo;
-  private TextView  typeTextView;
+  private TextView typeTextView;
   private FinalDb db;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -153,12 +152,12 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
     Toast.makeText(this, String.valueOf(position), 1000);
   }
 
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-        }
+  public void onSectionAttached(int number) {
+    switch (number) {
+      case 1:
+        mTitle = getString(R.string.title_section1);
+        break;
+    }
   }
 
   public void restoreActionBar() {
@@ -184,14 +183,14 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-          // Handle action bar item clicks here. The action bar will
-          // automatically handle clicks on the Home/Up button, so long
-          // as you specify a parent activity in AndroidManifest.xml.
-          switch (item.getItemId()) {
-              case R.id.main_last:
-                    openLastRoute();
-                  return true;
-          }
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    switch (item.getItemId()) {
+      case R.id.main_last:
+        openLastRoute();
+        return true;
+    }
     return super.onOptionsItemSelected(item);
   }
 
@@ -242,28 +241,45 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
    */
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    String result = data.getStringExtra("city");// 得到新Activity 关闭后返回的数据
-    Log.i("ganmaqu", result);
-    mNavigationDrawerFragment.setCityText(result);
-    MainFragment mainFragment =   (MainFragment)
+    switch (requestCode)
+    {
+      case 1: {
+        String result = data.getStringExtra("city");// 得到新Activity 关闭后返回的数据
+        Log.i("ganmaqu", result);
+        mNavigationDrawerFragment.setCityText(result);
+        MainFragment mainFragment = (MainFragment)
+            getSupportFragmentManager().findFragmentById(R.id.container);
+        mainFragment.showCircle();
+      }
+      case 2: {
+        if (resultCode == 2)
+        {
+          MainFragment mainFragment = (MainFragment)
               getSupportFragmentManager().findFragmentById(R.id.container);
-    mainFragment.showCircle();
+          mainFragment.dismissCircleDialog();
+          mainFragment.setCircleButton(data.getStringExtra("circle"));
+        }
+
+
+      }
+    }
+
   }
 
   private void openLastRoute()
   {
-      List<Route> routes  = db.findAll(Route.class);
-      Log.i("ganmaqu",String.valueOf(routes.size()));
-      if (routes.isEmpty())
-      {
-          Toast.makeText(MainActivity.this,"啊哦，您还没有保存过路线",Toast.LENGTH_SHORT).show();
-      }
-      else{
-         Route route = routes.get(routes.size()-1);
-         Log.i("ganmaqu","Route Time" + route.getDate());
-         Intent intent = new Intent(MainActivity.this,ResultActivity.class);
-         intent.putExtra("result",route.getPlacesJSON());
-         startActivity(intent);
-      }
+    List<Route> routes = db.findAll(Route.class);
+    Log.i("ganmaqu", String.valueOf(routes.size()));
+    if (routes.isEmpty())
+    {
+      Toast.makeText(MainActivity.this, "啊哦，您还没有保存过路线", Toast.LENGTH_SHORT).show();
+    }
+    else {
+      Route route = routes.get(routes.size() - 1);
+      Log.i("ganmaqu", "Route Time" + route.getDate());
+      Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+      intent.putExtra("result", route.getPlacesJSON());
+      startActivity(intent);
+    }
   }
 }
