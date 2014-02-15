@@ -7,12 +7,17 @@ import org.json.JSONObject;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -31,7 +36,7 @@ import com.xstrikers.ganmaquv2.ui.ganmaquApplication;
  */
 public class MainFragment extends android.support.v4.app.Fragment {
   private SharedPreferences userInfo;
-  private Button circleButton;
+  private Button circleButton,typeButton;
   private RadioButton familyRadioButton, friendsRadioButton, coupleRadioButton;
   private String selectType;
   private final String types[] = new String[] {"亲子出行", "朋友出行", "情侣出行"};
@@ -41,10 +46,11 @@ public class MainFragment extends android.support.v4.app.Fragment {
   private CircleDialog circleDialog;
   private Boolean myCircle;
   private ganmaquApplication ganmaquApplication;
+  private PopupWindow popupWindow;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+    final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
     userInfo = getActivity().getSharedPreferences("userInfo", 0);
     ganmaquApplication = (ganmaquApplication) getActivity().getApplication();
     circleButton = (Button) rootView.findViewById(R.id.main_button_circle);
@@ -92,6 +98,13 @@ public class MainFragment extends android.support.v4.app.Fragment {
         dialogTrans.show();
         // Log.i("ganmaqu","Location : " +locationManagerHelper.getLocation());
       }
+    });
+    typeButton = (Button)rootView.findViewById(R.id.button_type);
+    typeButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+           showtypeSelectPopUp(typeButton,R.layout.viewgroup_type);
+        }
     });
     return rootView;
   }
@@ -212,5 +225,17 @@ public class MainFragment extends android.support.v4.app.Fragment {
   {
     circleDialog.dismiss();
     myCircle = true;
+  }
+
+
+  private void showtypeSelectPopUp(View parentView,int resId)
+  {
+      LayoutInflater mLayoutInflater = (LayoutInflater)getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
+      View view = mLayoutInflater.inflate(resId, null);
+      popupWindow = new PopupWindow(view, WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+      popupWindow.setFocusable(true);// 使其聚集
+      popupWindow.setOutsideTouchable(true);// 设置允许在外点击消失
+      popupWindow.setBackgroundDrawable(new BitmapDrawable()); //设置此行使允许在外点击消失有响应
+      popupWindow.showAtLocation(parentView, Gravity.CENTER,100,100);
   }
 }
