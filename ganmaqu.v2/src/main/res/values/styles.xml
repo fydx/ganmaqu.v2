@@ -39,4 +39,12 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:backgroundDimAmount">0.6</item> <!-- 灰度 -->
     </style>
+    <style name="PopupWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/fading_in</item>
+        <item name="android:windowExitAnimation">@anim/fading_out</item>
+    </style>
+    <style name="TypesCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_type</item>
+        <item name="android:scaleType">center</item>
+    </style>
 </resources>
