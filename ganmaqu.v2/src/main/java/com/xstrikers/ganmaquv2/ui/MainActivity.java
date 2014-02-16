@@ -148,8 +148,6 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
   @Override
   public void onNavigationDrawerItemSelected(int position) {
     // update the main content by replacing fragments
-
-    Toast.makeText(this, String.valueOf(position), 1000);
   }
 
   public void onSectionAttached(int number) {

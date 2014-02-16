@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,6 +31,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xstrikers.ganmaquv2.R;
 import com.xstrikers.ganmaquv2.net.Connect;
 import com.xstrikers.ganmaquv2.ui.PoiSearchActivity;
+import com.xstrikers.ganmaquv2.ui.ganmaquApplication;
 
 /**
  * Created by LB on 14-1-22.
@@ -41,6 +44,7 @@ public class CircleDialog extends Dialog {
   private RequestQueue mRequestQueue;
   private GridAdapter gridAdapter;
 
+
   // private Context mContext;
 
 
@@ -49,6 +53,7 @@ public class CircleDialog extends Dialog {
     super(context, R.style.CircleDialog);
     this.city = cityString;
     activity = activity_main;
+
     // this.mContext = context;
     setCustomDialog();
 
@@ -85,6 +90,8 @@ public class CircleDialog extends Dialog {
         // System.out.println(response);
       }
     });
+
+
     super.setContentView(mView);
     Button myCircleButton = (Button)mView.findViewById(R.id.button_myCircle);
       myCircleButton.setOnClickListener(new View.OnClickListener() {

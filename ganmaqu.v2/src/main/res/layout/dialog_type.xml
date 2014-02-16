@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-   >
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
 
-    <GridView
+    <TextView
+        android:id="@+id/textView_chuxingshijian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="出行时间"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView_chuxingshijian"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp">
+
+        <RadioButton
+            android:id="@+id/radioButton_full"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:background="@drawable/radiobutton_style_full"
+            android:button="@null"
+            android:layout_alignLeft="@+id/textView_chuxingshijian"
+            android:checked="true" />
+        "
+
+        <RadioButton
+            android:id="@+id/radioButton_part"
+            android:layout_marginLeft="18dp"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:text=""
+            android:button="@null"
+            android:background="@drawable/radiobutton_style_part" />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textGroup"
+        android:layout_below="@+id/radioGroup"
+        android:layout_marginTop="3dp">
+    <TextView
+        android:id="@+id/textView_quantian"
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+       android:layout_weight="1"
+        android:text="全天"
+        android:textColor="#474747"
+        android:textSize="12dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="22dp"
+        android:layout_alignLeft="@+id/radioGroup"
+        android:layout_below="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textView_bufen"
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_weight="1"
+        android:text="部分"
+        android:textColor="#474747"
+        android:layout_marginLeft="22dp"
+        android:textSize="12dp"
+        android:layout_above="@+id/textView_didianleixing"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup" />
+</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地点类型"
+        android:layout_below="@id/textGroup"
+        android:id="@+id/textView_didianleixing"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
         android:id="@+id/gridView_types"
-        android:numColumns="3">
+        android:numColumns="3"
+        android:layout_below="@+id/textView_didianleixing">
 
     </GridView>
 </RelativeLayout>
