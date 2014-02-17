@@ -39,6 +39,8 @@ import com.xstrikers.ganmaquv2.model.Route;
 import com.xstrikers.ganmaquv2.ui.fragment.MainFragment;
 import com.xstrikers.ganmaquv2.ui.fragment.NavigationDrawerFragment;
 
+import cn.sharesdk.framework.ShareSDK;
+
 public class MainActivity extends android.support.v7.app.ActionBarActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
   /**
@@ -59,20 +61,21 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
 
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    db = FinalDb.create(this);
-    ActionBar actionbar = getSupportActionBar();
-    actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.main_actionbar_bg));
-    int actionBarTitleId =
-        getResources().getSystem().getIdentifier("action_bar_title", "id", "android");
-    if (actionBarTitleId > 0) {
-      TextView title = (TextView) findViewById(actionBarTitleId);
-      if (title != null) {
-        title.setTextColor(Color.WHITE);
-      }
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ShareSDK.initSDK(this);
+        db = FinalDb.create(this);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.main_actionbar_bg));
+        int actionBarTitleId =
+                getResources().getSystem().getIdentifier("action_bar_title", "id", "android");
+        if (actionBarTitleId > 0) {
+            TextView title = (TextView) findViewById(actionBarTitleId);
+            if (title != null) {
+                title.setTextColor(Color.WHITE);
+            }
+        }
     userInfo = this.getSharedPreferences("userInfo", 0);
     mNavigationDrawerFragment = (NavigationDrawerFragment)
         getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -191,7 +194,12 @@ public class MainActivity extends android.support.v7.app.ActionBarActivity
     }
     return super.onOptionsItemSelected(item);
   }
-
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        ShareSDK.stopSDK(this);
+    }
   /**
    * A placeholder fragment containing a simple view.
    */

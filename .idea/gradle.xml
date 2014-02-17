@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/MainLibs" />
+            <option value="$PROJECT_DIR$/OneKeyShare" />
             <option value="$PROJECT_DIR$/ganmaqu.v2" />
           </set>
         </option>

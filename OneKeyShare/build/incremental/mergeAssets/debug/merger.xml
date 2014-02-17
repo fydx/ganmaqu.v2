@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="D:\as project\ganmaqu.v2Project\OneKeyShare\assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="D:\as project\ganmaqu.v2Project\OneKeyShare\build-types\debug\assets" />
+    </dataSet>
+
+</merger>

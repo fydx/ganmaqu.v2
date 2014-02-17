@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MainLibs/MainLibs.iml" filepath="$PROJECT_DIR$/MainLibs/MainLibs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OneKeyShare/OneKeyShare.iml" filepath="$PROJECT_DIR$/OneKeyShare/OneKeyShare.iml" />
       <module fileurl="file://$PROJECT_DIR$/ganmaqu.v2/ganmaqu.v2.iml" filepath="$PROJECT_DIR$/ganmaqu.v2/ganmaqu.v2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ganmaqu.v2Project.iml" filepath="$PROJECT_DIR$/ganmaqu.v2Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
   </component>
 </project>

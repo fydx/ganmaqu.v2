@@ -6,7 +6,12 @@
     android:background="#cccc"
     android:gravity="center_horizontal"
     android:padding="6dp">
+    <Button
 
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:id="@+id/main_drawer_login"
+        android:text="登陆"/>
     <Button
 
         android:layout_width="80dp"

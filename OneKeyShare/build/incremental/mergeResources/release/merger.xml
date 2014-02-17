@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="GanmaquV2ProjectMainLibsUnspecified.aar" >
+        <source path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res" >
+            <file
+                name="ssdk_auth_title_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res\drawable-xhdpi\ssdk_auth_title_back.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ssdk_back_arr"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res\drawable-xhdpi\ssdk_back_arr.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ssdk_logo"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res\drawable-xhdpi\ssdk_logo.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ssdk_title_div"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res\drawable-xhdpi\ssdk_title_div.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res\values\values.xml"
+                qualifiers="" >
+                <string name="yixin_client_inavailable" >目前您的易信版本过低或未安装易信，需要安装易信才能使用
+                </string>
+                <string name="app_downloading" >应用正在后台下载
+                </string>
+                <string name="linkedin" >Linked In
+                </string>
+                <string name="youdao" >有道云笔记
+                </string>
+                <string name="facebook" >Facebook
+                </string>
+                <string name="vkontakte" >VK
+                </string>
+                <string name="instagram" >Instagram
+                </string>
+                <string name="wechatmoments" >微信朋友圈
+                </string>
+                <string name="tencentweibo" >腾讯微博
+                </string>
+                <string name="evernote" >印象笔记
+                </string>
+                <string name="kaixin" >开心网
+                </string>
+                <string name="douban" >豆瓣
+                </string>
+                <string name="download_faield" >下载失败
+                </string>
+                <string name="qzone" >QQ空间
+                </string>
+                <string name="share_to_qzone" >分享到QQ空间
+                </string>
+                <string name="foursquare" >FourSquare
+                </string>
+                <string name="qq" >QQ
+                </string>
+                <string name="sohumicroblog" >搜狐微博
+                </string>
+                <string name="wechat" >微信好友
+                </string>
+                <string name="google_plus_client_inavailable" >Google+ 版本过低或者没有安装，需要升级或安装Google+才能使用！
+                </string>
+                <string name="pinterest_client_inavailable" >Pinterest版本过低或者没有安装，需要升级或安装Pinterest才能使用！
+                </string>
+                <string name="tumblr" >Tumblr
+                </string>
+                <string name="renren" >人人网
+                </string>
+                <string name="instagram_client_inavailable" >Instagram版本过低或者没有安装，需要升级或安装Instagram才能使用！
+                </string>
+                <string name="flickr" >Flickr
+                </string>
+                <string name="pinterest" >Pinterest
+                </string>
+                <string name="twitter" >Twitter
+                </string>
+                <string name="email" >邮件
+                </string>
+                <string name="wechatfavorite" >微信收藏
+                </string>
+                <string name="googleplus" >Google+
+                </string>
+                <string name="dropbox" >Dropbox
+                </string>
+                <string name="incentive_title" >分享有奖
+                </string>
+                <string name="qq_client_inavailable" >QQ 版本过低或者没有安装，需要升级或安装QQ才能使用！
+                </string>
+                <string name="yixin" >易信
+                </string>
+                <string name="sohusuishenkan" >搜狐随身看
+                </string>
+                <string name="shortmessage" >信息
+                </string>
+                <string name="wechat_client_inavailable" >目前您的微信版本过低或未安装微信，需要安装微信才能使用
+                </string>
+                <string name="sinaweibo" >新浪微博
+                </string>
+                <string name="failed_to_start_incentive_page" >无法打开“分享有奖页面”
+                </string>
+                <string name="weibo_oauth_regiseter" >应用授权
+                </string>
+                <string name="neteasemicroblog" >网易微博
+                </string>
+                <string name="weibo_upload_content" >分享图片
+                </string>
+                <string name="website" >http://www.shareSDK.cn
+                </string>
+                <string name="yixinmoments" >易信朋友圈
+                </string>
+            </file>
+            <file
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\exploded-bundles\GanmaquV2ProjectMainLibsUnspecified.aar\res\values-en\values.xml"
+                qualifiers="en" >
+                <string name="flickr" >Flickr
+                </string>
+                <string name="app_downloading" >App is downloading
+                </string>
+                <string name="youdao" >Youdao
+                </string>
+                <string name="email" >Email
+                </string>
+                <string name="linkedin" >Linked in
+                </string>
+                <string name="neteasemicroblog" >Netease Microblog
+                </string>
+                <string name="instagram" >Instagram
+                </string>
+                <string name="foursquare" >FourSquare
+                </string>
+                <string name="qq" >QQ
+                </string>
+                <string name="weibo_oauth_regiseter" >Authorization
+                </string>
+                <string name="vkontakte" >VK
+                </string>
+                <string name="website" >http://www.shareSDK.cn
+                </string>
+                <string name="sohumicroblog" >Sohu Microblog
+                </string>
+                <string name="yixin" >Yixin
+                </string>
+                <string name="kaixin" >Kaixin
+                </string>
+                <string name="qzone" >QZone
+                </string>
+                <string name="yixinmoments" >Yixin Moments
+                </string>
+                <string name="download_faield" >Download Failed
+                </string>
+                <string name="weibo_upload_content" >分享图片
+                </string>
+                <string name="googleplus" >Google+
+                </string>
+                <string name="facebook" >Facebook
+                </string>
+                <string name="instagram_client_inavailable" >Instagram client not exists or the version is too low
+                </string>
+                <string name="pinterest" >Pinterest
+                </string>
+                <string name="renren" >Renren
+                </string>
+                <string name="share_to_qzone" >Share To QZone
+                </string>
+                <string name="wechat_client_inavailable" >Wechat client not exists or the version is too low
+                </string>
+                <string name="pinterest_client_inavailable" >Pinterest client not exists or the version is too low
+                </string>
+                <string name="qq_client_inavailable" >Mobile QQ client not exists or the version is too low
+                </string>
+                <string name="twitter" >Twitter
+                </string>
+                <string name="shortmessage" >Short Message
+                </string>
+                <string name="failed_to_start_incentive_page" >Failed to Start Sharing Incentives Page
+                </string>
+                <string name="sohusuishenkan" >Sohu Suishenkan
+                </string>
+                <string name="tencentweibo" >Tencent Weibo
+                </string>
+                <string name="google_plus_client_inavailable" >Google+ client not exists or the version is too low
+                </string>
+                <string name="yixin_client_inavailable" >Yixin client not exists or the version is too low
+                </string>
+                <string name="dropbox" >Dropbox
+                </string>
+                <string name="wechat" >Wechat
+                </string>
+                <string name="tumblr" >Tumblr
+                </string>
+                <string name="wechatmoments" >Wechat Moments
+                </string>
+                <string name="sinaweibo" >Sina Weibo
+                </string>
+                <string name="evernote" >Evernote
+                </string>
+                <string name="douban" >Douban
+                </string>
+                <string name="wechatfavorite" >Wechat Favorite
+                </string>
+                <string name="incentive_title" >Sharing Incentives
+                </string>
+            </file>
+        </source>
+    </dataSet>
+    <dataSet config="main" >
+        <source path="D:\as project\ganmaqu.v2Project\OneKeyShare\res" >
+            <file
+                name="ssdk_oks_ptr_ptr"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-hdpi\ssdk_oks_ptr_ptr.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="auth_follow_cb_chd"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\auth_follow_cb_chd.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="auth_follow_cb_unc"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\auth_follow_cb_unc.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="auth_title_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\auth_title_back.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="btn_back_nor"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\btn_back_nor.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="btn_cancel_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\btn_cancel_back.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="edittext_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\edittext_back.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="gray_point"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\gray_point.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="img_cancel"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\img_cancel.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_douban"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_douban.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_dropbox"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_dropbox.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_email"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_email.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_evernote"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_evernote.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_facebook"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_facebook.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_flickr"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_flickr.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_foursquare"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_foursquare.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_googleplus"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_googleplus.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_instagram"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_instagram.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_kaixin"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_kaixin.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_linkedin"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_linkedin.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_neteasemicroblog"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_neteasemicroblog.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_pinterest"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_pinterest.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_qq"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_qq.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_qzone"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_qzone.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_renren"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_renren.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_shortmessage"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_shortmessage.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_sinaweibo"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_sinaweibo.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_sohumicroblog"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_sohumicroblog.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_sohusuishenkan"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_sohusuishenkan.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_tencentweibo"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_tencentweibo.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_tumblr"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_tumblr.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_twitter"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_twitter.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_vkontakte"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_vkontakte.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_wechat"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_wechat.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_wechatfavorite"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_wechatfavorite.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_wechatmoments"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_wechatmoments.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_yixin"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_yixin.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_yixinmoments"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_yixinmoments.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="logo_youdao"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\logo_youdao.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="pin"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\pin.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="share_tb_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\share_tb_back.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="share_vp_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\share_vp_back.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="title_back"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\title_back.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="title_shadow"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\title_shadow.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="white_point"
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\drawable-xhdpi\white_point.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\values\strings.xml"
+                qualifiers="" >
+                <string name="list_friends" >%s的朋友
+                </string>
+                <string name="release_to_refresh" >松开刷新
+                </string>
+                <string name="select_one_plat_at_least" >请选择一个目标平台
+                </string>
+                <string name="share_completed" >分享成功
+                </string>
+                <string name="share_failed" >分享失败
+                </string>
+                <string name="finish" >完成
+                </string>
+                <string name="refreshing" >刷新中…
+                </string>
+                <string name="share_canceled" >分享已取消
+                </string>
+                <string name="sharing" >分享操作正在后台进行…
+                </string>
+                <string name="cancel" >取消
+                </string>
+                <string name="multi_share" >图文分享
+                </string>
+                <string name="pull_to_refresh" >下拉刷新
+                </string>
+                <string name="share_to" >分享到
+                </string>
+                <string name="share" >分享
+                </string>
+            </file>
+            <file
+                path="D:\as project\ganmaqu.v2Project\OneKeyShare\res\values-en\strings.xml"
+                qualifiers="en" >
+                <string name="refreshing" >Refreshing…
+                </string>
+                <string name="share_to" >Share to 
+                </string>
+                <string name="release_to_refresh" >Release to refresh
+                </string>
+                <string name="share_canceled" >Operation canceled
+                </string>
+                <string name="select_one_plat_at_least" >Please select a target platform
+                </string>
+                <string name="cancel" >Cancel
+                </string>
+                <string name="share_failed" >Operation failed
+                </string>
+                <string name="sharing" >Sharing operation is working in the background…
+                </string>
+                <string name="pull_to_refresh" >Pull down to refresh
+                </string>
+                <string name="multi_share" >Photo Sharing
+                </string>
+                <string name="share_completed" >Operation succeeded
+                </string>
+                <string name="share" >Share
+                </string>
+                <string name="finish" >Finish
+                </string>
+                <string name="list_friends" >Friends on %s
+                </string>
+            </file>
+        </source>
+        <source path="D:\as project\ganmaqu.v2Project\OneKeyShare\build\res\rs\release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="D:\as project\ganmaqu.v2Project\OneKeyShare\build-types\release\res" />
+    </dataSet>
+
+</merger>

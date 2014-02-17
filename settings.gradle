@@ -1,1 +1,1 @@
-include ':ganmaqu.v2'
+include ':ganmaqu.v2',":MainLibs",":OneKeyShare"

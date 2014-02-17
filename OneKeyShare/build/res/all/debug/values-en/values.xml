@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="app_downloading">App is downloading</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="cancel">Cancel</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="douban">Douban</string>
+    <string name="download_faield">Download Failed</string>
+    <string name="dropbox">Dropbox</string>
+    <string name="email">Email</string>
+    <string name="evernote">Evernote</string>
+    <string name="facebook">Facebook</string>
+    <string name="failed_to_start_incentive_page">Failed to Start Sharing Incentives Page</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="finish">Finish</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="flickr">Flickr</string>
+    <string name="foursquare">FourSquare</string>
+    <string name="google_plus_client_inavailable">Google+ client not exists or the version is too low</string>
+    <string name="googleplus">Google+</string>
+    <string name="incentive_title">Sharing Incentives</string>
+    <string name="instagram">Instagram</string>
+    <string name="instagram_client_inavailable">Instagram client not exists or the version is too low</string>
+    <string name="kaixin">Kaixin</string>
+    <string name="linkedin">Linked in</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="list_friends">Friends on %s</string>
+    <string name="multi_share">Photo Sharing</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="neteasemicroblog">Netease Microblog</string>
+    <string name="pinterest">Pinterest</string>
+    <string name="pinterest_client_inavailable">Pinterest client not exists or the version is too low</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh">Pull down to refresh</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="qq">QQ</string>
+    <string name="qq_client_inavailable">Mobile QQ client not exists or the version is too low</string>
+    <string name="qzone">QZone</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="refreshing">Refreshing…</string>
+    <string name="release_to_refresh">Release to refresh</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="renren">Renren</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="select_one_plat_at_least">Please select a target platform</string>
+    <string name="share">Share</string>
+    <string name="share_canceled">Operation canceled</string>
+    <string name="share_completed">Operation succeeded</string>
+    <string name="share_failed">Operation failed</string>
+    <string name="share_to">Share to </string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="share_to_qzone">Share To QZone</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/res/values-en/strings.xml -->
+    <eat-comment />
+
+    <string name="sharing">Sharing operation is working in the background…</string>
+    <!-- From: file:/D:/as%20project/ganmaqu.v2Project/OneKeyShare/build/exploded-bundles/GanmaquV2ProjectMainLibsUnspecified.aar/res/values-en/values.xml -->
+    <eat-comment />
+
+    <string name="shortmessage">Short Message</string>
+    <string name="sinaweibo">Sina Weibo</string>
+    <string name="sohumicroblog">Sohu Microblog</string>
+    <string name="sohusuishenkan">Sohu Suishenkan</string>
+    <string name="tencentweibo">Tencent Weibo</string>
+    <string name="tumblr">Tumblr</string>
+    <string name="twitter">Twitter</string>
+    <string name="vkontakte">VK</string>
+    <string name="website">http://www.shareSDK.cn</string>
+    <string name="wechat">Wechat</string>
+    <string name="wechat_client_inavailable">Wechat client not exists or the version is too low</string>
+    <string name="wechatfavorite">Wechat Favorite</string>
+    <string name="wechatmoments">Wechat Moments</string>
+    <string name="weibo_oauth_regiseter">Authorization</string>
+    <string name="weibo_upload_content">分享图片</string>
+    <string name="yixin">Yixin</string>
+    <string name="yixin_client_inavailable">Yixin client not exists or the version is too low</string>
+    <string name="yixinmoments">Yixin Moments</string>
+    <string name="youdao">Youdao</string>
+
+</resources>
