@@ -25,10 +25,15 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.xstrikers.ganmaquv2.R;
+import com.xstrikers.ganmaquv2.ui.ResultActivity;
 import com.xstrikers.ganmaquv2.ui.SelectCityActivity;
 
+import java.util.HashMap;
+
 import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 
 ;
@@ -71,6 +76,8 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mUserLearnedDrawer;
     private SharedPreferences userInfo;
     private Platform weibo;
+    private String userName;
+
 
     public NavigationDrawerFragment() {
     }
@@ -116,17 +123,62 @@ public class NavigationDrawerFragment extends Fragment {
         weibo = ShareSDK
                 .getPlatform(getActivity().getApplicationContext(),
                         SinaWeibo.NAME);
-        if (userInfo.getString("userId", null).equals(null)) {
-            Log.i("ganmaqu", "NO USER LOGIN EVER");
-            loginButton.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
+
+
+        userInfo.edit().putString("userName", "0").commit();
+        Log.i("ganmaqu", "SINA ACCOUNT : " + userInfo.getString("userName", "0"));
+        if (!userInfo.getString("userName", "0").equals("0")) {
+            Toast.makeText(getActivity(), "登陆成功 " + weibo.getDb().getUserName(), Toast.LENGTH_SHORT).show();
+        }
+        weibo.setPlatformActionListener(new PlatformActionListener() {
+
+            public void onError(Platform platform, int action, Throwable t) {
+                // 操作失败的处理代码
+                //Toast.makeText(getActivity(),"登陆失败",Toast.LENGTH_SHORT).show();
+                Log.e("ganmaqu","WEIBO EXCPTION : " + t.toString());
+            }
+
+            public void onComplete(Platform platform, int action,
+                                   HashMap<String, Object> res) {
+                // 操作成功的处理代码
+                userName = platform.getDb().getUserName();
+                userInfo.edit().putString("userName", userName).commit();
+                userInfo.edit().putString("userId", weibo.getDb().getUserId()).commit();
+                Log.i("ganmaqu","SINA WEIBO :" +"登陆成功");
+                //Toast.makeText(getActivity(), "登陆成功 " + userName, Toast.LENGTH_SHORT).show();
+            }
+
+            public void onCancel(Platform platform, int action) {
+                // 操作取消的处理代码
+            }
+
+        });
+        //if (userInfo.getString("userId", "0").equals("0")) {
+        Log.i("ganmaqu", "NO USER LOGIN EVER");
+        loginButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.i("ganmaqu", "WEIBO : " + weibo.getDb().getUserName());
+                        if (userInfo.getString("userName", "0").equals("0")) {
                             weibo.authorize();
+                            OnekeyShare oks = new OnekeyShare();
+
+                            // 分享时Notification的图标和文字
+                            oks.setNotification(R.drawable.ic_launcher,
+                                   "123");
+                            oks.setText("123");
+                            oks.setSilent(false);
+                            oks.show(getActivity());
+                        } else {
+                            weibo.removeAccount();
+                            userInfo.edit().putString("userName", "0").commit();
+                            Toast.makeText(getActivity(), "remove", Toast.LENGTH_SHORT).show();
                         }
                     }
-            );
-        }
+                }
+        );
+        //  }
         return contentView;
     }
 

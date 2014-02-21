@@ -15,5 +15,8 @@
     <string name="manualSelect">手动选择</string>
     <string name="autoSelect">自动选择</string>
     <string name="map">查看地图</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
